@@ -102,7 +102,7 @@ Display all the lines in the file */etc/passwd* that do not contain the pattern 
 
 ## 18-letteronly: Letters only please
 
-Display all lines of the file */etc/ssh/sshd_config* starting with a letter, include capital letters as well using *grep '^[(A-Za-z)]' /etc/passwd*.
+Display all lines of the file */etc/ssh/sshd_config* starting with a letter, include capital letters as well using *grep '^[[:alpha:]]' /etc/ssh/sshd_config*.
 
 ## 19-AZ: A to Z
 
@@ -118,7 +118,7 @@ A script that reverse its input using *rev*.
 
 ## 22-users_and_homes: DJ Cut Killer
 
-A script that displays all users and their home directories, sorted by users using *grep / /etc/passwd | sort*.
+A script that displays all users and their home directories, sorted by users using *getent passwd | cut -d: -f1,6 | sort*.
 
 ## 100-empty_casks: Empty casks make the most noise
 
