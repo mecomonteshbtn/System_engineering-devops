@@ -1,2 +1,2 @@
 #!/bin/bash
-export global HOLERTON="Betty"
+global HOLBERTON="Betty"
