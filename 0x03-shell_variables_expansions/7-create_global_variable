@@ -1,2 +1,2 @@
 #!/bin/bash
-global HOLERTON=Betty
+global HOLERTON="Betty"
