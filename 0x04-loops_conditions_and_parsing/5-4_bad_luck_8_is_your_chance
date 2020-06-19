@@ -1,1 +1,13 @@
 #!/usr/bin/env bash
+#This script displays "bad luck" in 4, "good luck" in 8, and "holberton School" in otherwise
+i=1
+while ((i <= 10)); do
+	if ((i == 4)); then
+		echo "bad luck"
+	elif ((i == 8)); then
+		echo "good luck"
+	else
+		echo "Holberton School"
+	fi
+	((i+=1))
+done

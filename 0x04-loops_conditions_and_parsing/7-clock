@@ -1,1 +1,8 @@
 #!/usr/bin/env bash
+# Displays the time for 12 hours and 59 minutes
+for i in {0..12}; do
+	echo "Hour: $i"
+	for j in {1..59}; do
+		echo $j
+	done
+done
