@@ -23,12 +23,12 @@ int infinite_while(void)
  */
 int main(void)
 {
-	int i, pid;
+	int i = 0, pid = 0;
 
-	for (i = 0; i < 5; i++)
+	for (; i < 5; i++)
 	{
 		pid = fork();
-		if (pid == -1)
+		if (pid < 0)
 			continue;
 		else if (pid == 0)
 			exit(0);
