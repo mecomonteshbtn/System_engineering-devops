@@ -1,1 +1,11 @@
 #!/usr/bin/env bash
+# traps signals and creates a file containing its pid
+i=0
+echo $BASHPID > /var/run/holbertonscript.pid
+trap 'echo "I hate the kill command"; rm /var/run/holbertonscript.pid; exit 0;' SIGTERM
+trap 'echo "Y U no love me?!"' SIGINT
+trap 'rm /var/run/holbertonscript.pid; exit 0;' SIGQUIT
+while [ $i ]; do
+    echo 'To infinity and beyond'
+    sleep 2
+done;
