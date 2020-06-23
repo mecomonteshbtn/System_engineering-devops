@@ -6,13 +6,13 @@ case $1 in
 	echo 'manage_my_process started';;
     "restart")
 	id=$(cat /var/run/my_process.pid)
-	kill -s SIGSTOP $id
+	kill -s SIGSTOP "$id"
 	rm /var/run/my_process.pid
 	./manage_my_process & > /var/run/my_process.pid
 	echo 'manage_my_process restarted';;
     "stop")
 	id=$(cat /var/run/my_process.pid)
-	kill -s SIGSTOP $id
+	kill -s SIGSTOP "$id"
 	rm /var/run/my_process.pid
 	echo 'manage_my_process stopped';;
     *)
