@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# this script will be used as an ip set up script, works in docker
+ifconfig | grep 'inet addr' | cut -d':' -f2 | cut -d' ' -f1
