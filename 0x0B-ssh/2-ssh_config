@@ -1,1 +1,4 @@
-#!/usr/bin/env bash
+# holberton server config options
+Host 34.75.91.155
+    IdentityFile ~/.ssh/holberton
+    Protocol 2
