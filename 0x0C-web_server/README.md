@@ -8,15 +8,15 @@ DNS is, in simple words, the technology that translates human-adapted, text-base
 
 [Learn everything about DNS in cartoon](https://howdns.works/)
 Be sure to know the main DNS record types:
-*        [A](https://support.dnsimple.com/articles/a-record/)
-*        [CNAME](https://en.wikipedia.org/wiki/CNAME_record)
-*        [MX](https://en.wikipedia.org/wiki/MX_record)
-*        [TXT](https://en.wikipedia.org/wiki/TXT_record)
+* [A](https://support.dnsimple.com/articles/a-record/)
+* [CNAME](https://en.wikipedia.org/wiki/CNAME_record)
+* [MX](https://en.wikipedia.org/wiki/MX_record)
+* [TXT](https://en.wikipedia.org/wiki/TXT_record)
 
 Advanced
 *    [Use DNS to scale with round-robin DNS](https://www.dnsknowledge.com/whatis/round-robin-dns/)
-*    [What’s an NS Record?](https://support.dnsimple.com/articles/ns-record/)
-*    [What’s an SOA Record?](https://support.dnsimple.com/articles/soa-record/)
+* [What’s an NS Record?](https://support.dnsimple.com/articles/ns-record/)
+* [What’s an SOA Record?](https://support.dnsimple.com/articles/soa-record/)
 
 The root domain and sub domain - differences
 
@@ -40,23 +40,19 @@ But you might hear people referring to a web server using the word server.
 As mentioned above, a server is a physical machine, an actual computer, but in the Cloud era that could also be a virtual computer, generally called a VM (Virtual Machine) or container.
 
 Readme:
-*    [Wikipedia page about web server](https://en.wikipedia.org/wiki/Web_server)
-*    [Web server](https://en.wikipedia.org/wiki/Web_server)
-*    [What is a Web Server?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server)
+* [Wikipedia page about web server](https://en.wikipedia.org/wiki/Web_server)
+* [Web server](https://en.wikipedia.org/wiki/Web_server)
+* [What is a Web Server?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server)
 
 ---
-## 
-CI/CD
-
-System engineering & DevOps
-
+## CI/CD
 The lean/agile methodology (See: [Twelve Principles of Agile Software](http://agilemanifesto.org/principles.html)) is now widely used by the industry and one of its key principles is to iterate as fast as possible. If you apply this to software engineering, it means that you should:
-*    code
-*    ship your code
-*    measure the impact
-*    learn from it
-*    fix or improve it
-*    start over
+*   code
+*   ship your code
+*   measure the impact
+*   learn from it
+*   fix or improve it
+*   start over
 
 As fast as possible and with small iterations in days or even hours (whereas it used to be weeks or even months). One big advantage is that if product development is going the wrong direction, fast iteration will allow to quickly detect this, and avoid wasting time.
 
@@ -65,14 +61,14 @@ From a technical point of view, quicker iterations mean fewer lines of code bein
 Applied to software engineering, CI/CD (Continuous Integration/Continuous Deployment) is a principle that allows individuals or teams to have a lean/agile way of working.
 
 This translates to a “shipping pipeline” which is often built with multiple tools such as:
-*    Shipping the code:
-*        Capistrano, Fabric
-*    Encapsulating the code
-*        Docker, Packer
-*    Testing the code
-*        Jenkins, CircleCi, Travis
-*    Measuring the code
-*        Datadog, Newrelic, Wavefront
+*   Shipping the code:
+*    Capistrano, Fabric
+*   Encapsulating the code
+*    Docker, Packer
+*   Testing the code
+*    Jenkins, CircleCi, Travis
+*   Measuring the code
+*    Datadog, Newrelic, Wavefront
 
 ---
 ## Docker
@@ -138,13 +134,13 @@ Test and verify your assumptions
 
 The idea is to ask a set of questions until you find the issue. For example, if you installed a web server and it isn’t serving a page when browsing the IP, here are some questions you can ask yourself to start debugging:
 
-*    Is the web server started? - You can check using the service manager, also double check by checking process list.
-*    On what port should it listen? - Check your web server configuration
-*    Is it actually listening on this port? - netstat -lpdn - run as root or sudo so that you can see the process for each listening port
-*    It is listening on the correct server IP? - netstat is also your friend here
-*    Is there a firewall enabled?
-*    Have you looked at logs? - usually in /var/log and tail -f is your friend
-*    Can I connect to the HTTP port from the location I am browsing from? - curl is your friend
+* Is the web server started? - You can check using the service manager, also double check by checking process list.
+* On what port should it listen? - Check your web server configuration
+* Is it actually listening on this port? - netstat -lpdn - run as root or sudo so that you can see the process for each listening port
+* It is listening on the correct server IP? - netstat is also your friend here
+* Is there a firewall enabled?
+* Have you looked at logs? - usually in /var/log and tail -f is your friend
+* Can I connect to the HTTP port from the location I am browsing from? - curl is your friend
 
 There is a good chance that at this point you will already have found part of the issue.
 Get a quick overview of the machine state
@@ -152,59 +148,59 @@ Get a quick overview of the machine state
 When you connect to a server/machine/computer/container you want to understand what’s happened recently and what’s happening now, and you can do this with 5 commands in a minute or less:
 
 ### w
-*    shows server uptime which is the time during which the server has been continuously running
-*    shows which users are connected to the server
-*    load average will give you a good sense of the server health - (read more about load here and here)
+* shows server uptime which is the time during which the server has been continuously running
+* shows which users are connected to the server
+* load average will give you a good sense of the server health - (read more about load here and here)
 
 ### history
-*    shows which commands were previously run by the user you are currently connected to
-*    you can learn a lot about what type of work was previously performed on the machine, and what could have gone wrong with it
-*    where you might want to start your debugging work
+* shows which commands were previously run by the user you are currently connected to
+* you can learn a lot about what type of work was previously performed on the machine, and what could have gone wrong with it
+* where you might want to start your debugging work
 
 ### top
-*    shows what is currently running on this server
-*    order results by CPU, memory utilization and catch the ones that are resource intensive
+* shows what is currently running on this server
+* order results by CPU, memory utilization and catch the ones that are resource intensive
 
 ### df
-*    shows disk utilization
+* shows disk utilization
 
 ### netstat
-*    what port and IP your server is listening on
-*    what processes are using sockets
-*    try netstat -lpn on a Ubuntu machine
+* what port and IP your server is listening on
+* what processes are using sockets
+* try netstat -lpn on a Ubuntu machine
 
 ### Machine
 Debugging is pretty much about verifying assumptions, in a perfect world the software or system we are working on would be working perfectly, the server is in perfect shape and everybody is happy. But actually, it NEVER goes this way, things ALWAYS fail (it’s tremendous!).
 
 For the machine level, you want to ask yourself these questions:
-*    Does the server have free disk space? - df
-*    Is the server able to keep up with CPU load? - w, top, ps
-*    Does the server have available memory? free
-*    Are the server disk(s) able to keep up with read/write IO? - htop
+* Does the server have free disk space? - df
+* Is the server able to keep up with CPU load? - w, top, ps
+* Does the server have available memory? free
+* Are the server disk(s) able to keep up with read/write IO? - htop
 
 If the answer is no for any of these questions, then that might be the reason why things are not going as expected. There are often 3 ways of solving the issue:
-*    free up resources (stop process(es) or reduce their resource consumption)
-*    increase the machine resources (adding memory, CPU, disk space…)
-*    distributing the resource usage to other machines
+* free up resources (stop process(es) or reduce their resource consumption)
+* increase the machine resources (adding memory, CPU, disk space…)
+* distributing the resource usage to other machines
 
 ### Network issue
 For the machine level, you want to ask yourself these questions:
-*    Does the server have the expected network interfaces and IPs up and running? ifconfig
-*    Does the server listen on the sockets that it is supposed to? netstat (netstat -lpd or netstat -lpn)
-*    Can you connect from the location you want to connect from, to the socket you want to connect to? telnet to the IP + PORT (telnet 8.8.8.8 80)
-*    Does the server have the correct firewall rules? iptables, ufw:
-*        iptables -L
-*        sudo ufw status
+* Does the server have the expected network interfaces and IPs up and running? ifconfig
+* Does the server listen on the sockets that it is supposed to? netstat (netstat -lpd or netstat -lpn)
+* Can you connect from the location you want to connect from, to the socket you want to connect to? telnet to the IP + PORT (telnet 8.8.8.8 80)
+* Does the server have the correct firewall rules? iptables, ufw:
+*   iptables -L
+*   sudo ufw status
 
 ### Process issue
 If a piece of Software isn’t behaving as expected, it can obviously be because of above reasons… but the good news is that there is more to look into (there is ALWAYS more to look into actually).
-*    Is the software started? init, init.d:
-*        service NAME_OF_THE_SERVICE status
-*        /etc/init.d/NAME_OF_THE_SERVICE status
-*    Is the software process running? pgrep, ps:
-*        pgrep -lf NAME_OF_THE_PROCESS
-*        ps auxf
-*    Is there anything interesting in the logs? look for log files in /var/log/ and tail -f is your friend
+* Is the software started? init, init.d:
+*  service NAME_OF_THE_SERVICE status
+*  /etc/init.d/NAME_OF_THE_SERVICE status
+* Is the software process running? pgrep, ps:
+*  pgrep -lf NAME_OF_THE_PROCESS
+*  ps auxf
+* Is there anything interesting in the logs? look for log files in /var/log/ and tail -f is your friend
 
 ### Debugging is fun
 Debugging can be frustrating, but it will definitely be part of your job, it requires experience and methodology to become good at it. The good news is that bugs are never going away, and the more experienced you become, trickier bugs will be assigned to you! Good luck :)
@@ -216,112 +212,112 @@ DevOps is not a specific position, nor is it a set of tools. It is rather a move
 Several separate concepts/services have been developed out of the DevOps movement such as:
 
 ### Build Automation
-*        Build automation is the process of using tools to automatically build code from source in order to prepare it for deployment to a live environment. This includes compiling, linting, minifying, transforming, and unit testing.
-*        Some of the benefits are that it makes building fast, consistent, repeatable, portable, and reliable.
+* Build automation is the process of using tools to automatically build code from source in order to prepare it for deployment to a live environment. This includes compiling, linting, minifying, transforming, and unit testing.
+* Some of the benefits are that it makes building fast, consistent, repeatable, portable, and reliable.
 
 ### Continuous Integration
-*        The process of continuously pushing code and integrating with the code base.
-*        It is done with the help of a CI server which executes automated builds/tests.
-*        If there is a problem, developers are notified so that they may act upon bugs immediately.
-*        It eliminates the scramble to release that is a frequent issue with monolithic architectures, makes frequent releases possible, and makes continuous testing possible.
+* The process of continuously pushing code and integrating with the code base.
+* It is done with the help of a CI server which executes automated builds/tests.
+* If there is a problem, developers are notified so that they may act upon bugs immediately.
+* It eliminates the scramble to release that is a frequent issue with monolithic architectures, makes frequent releases possible, and makes continuous testing possible.
 
 ### Continuous Delivery
-*        Continuous delivery is about always maintaining code in a state which could be pushed into production.
-*        This allows changes to be rolled back much more easily.
-*        The benefits include a faster time to market, fewer issues with deployment, and lower risk.
+* Continuous delivery is about always maintaining code in a state which could be pushed into production.
+* This allows changes to be rolled back much more easily.
+* The benefits include a faster time to market, fewer issues with deployment, and lower risk.
 
 ### Continuous Deployment
-*        Continuous deployment consists of frequently making small changes to code which are pushed to production continuously.
-*        This differs from continuous delivery in that it is about actually pushing the code into production, rather than maintaining it in a state which is ready for deployment.
+* Continuous deployment consists of frequently making small changes to code which are pushed to production continuously.
+* This differs from continuous delivery in that it is about actually pushing the code into production, rather than maintaining it in a state which is ready for deployment.
 
 ### Infrastructure as Code (IAC)
-*        IAC is about managing and provisioning infrastructure through code and automation.
-*        Infrastructure consists of servers, instances, environments, containers, clusters, etc.
-*        IAC allows for consistency, reusability, and scalability.
+* IAC is about managing and provisioning infrastructure through code and automation.
+* Infrastructure consists of servers, instances, environments, containers, clusters, etc.
+* IAC allows for consistency, reusability, and scalability.
 
 ### Configuration Management
-*        CM is the process of maintaining and changing the state of infrastructure in a consistent and stable way.
-*        eg. upgrade a software package on a bunch of servers automatically rather than manually.
-*        CM saves time, provides insight into current state of infrastructure, and is maintainable because the infrastructure is stable.
+* CM is the process of maintaining and changing the state of infrastructure in a consistent and stable way.
+* eg. upgrade a software package on a bunch of servers automatically rather than manually.
+* CM saves time, provides insight into current state of infrastructure, and is maintainable because the infrastructure is stable.
 
 ### Orchestration
-*        Orchestration is a type of automation that supports processes and workflows, such as the provisioning of resources.
-*        eg. a system is experiencing increased load, a customer or monitoring tool recognizes an increased need for resources, and automatically puts together additional resources.
-*        It is scalable, stable, time-saving, and self-servicing.
+* Orchestration is a type of automation that supports processes and workflows, such as the provisioning of resources.
+* eg. a system is experiencing increased load, a customer or monitoring tool recognizes an increased need for resources, and automatically puts together additional resources.
+* It is scalable, stable, time-saving, and self-servicing.
 
 ### Monitoring
-*        It is the collection and presentation of data about the performance and stability of services and infrastructure.
-*        It collects information and statistics on memory use, cpu, disk i/o, application logs, network traffic.
-*        Provides real-time notifications; postmortem analysis.
-*        Allows for fast recovery, better root cause analysis, visibility across teams (both dev and ops), and automated responses.
+* It is the collection and presentation of data about the performance and stability of services and infrastructure.
+* It collects information and statistics on memory use, cpu, disk i/o, application logs, network traffic.
+* Provides real-time notifications; postmortem analysis.
+* Allows for fast recovery, better root cause analysis, visibility across teams (both dev and ops), and automated responses.
 
 ### Microservices
-*        A particular software architecture which breaks an application up into a collection of small, loosely-coupled services.
-*        The services work together via APIs
-*        Microservices are modular which reduces complexity in maintenance, technological flexibility (you can use different tools, languages, etc.), and provide optimized scalability,
+* A particular software architecture which breaks an application up into a collection of small, loosely-coupled services.
+* The services work together via APIs
+* Microservices are modular which reduces complexity in maintenance, technological flexibility (you can use different tools, languages, etc.), and provide optimized scalability,
 
 As mentioned above, DevOps is not a set of tools, however, in order to make the idea a reality, several tools have been developed.
-Example DevOps Tools:
 
-*    Build Automation
-*        Java - ant, maven, gradle
-*        Javascript - npm, grant, gulp
-*        Unix-based - Make
-*        Machine images and containers - Packer
-*    Continuous Integration
-*        Bamboo
-*        Gitlab
-*        Jenkins
-*        Travis CI
-*    Configuration Management
-*        Puppet
-*        Chef
-*        Ansible
-*        Salt
-*    Virtualization and Containerization
-*        Vagrant
-*        Docker
-*    Monitoring
-*        SenSu
-*        SumoLogic
-*        NewRelic
-*        AppDynamics
-*        DataDog
-*    Orchestration
-*        Docker Swarm
-*        Kubernetes
-*        Zookeeper
-*        Terraform
+Example DevOps Tools:
+* Build Automation
+*   Java - ant, maven, gradle
+*   Javascript - npm, grant, gulp
+*   Unix-based - Make
+*   Machine images and containers - Packer
+* Continuous Integration
+*   Bamboo
+*   Gitlab
+*   Jenkins
+*   Travis CI
+* Configuration Management
+*   Puppet
+*   Chef
+*   Ansible
+*   Salt
+* Virtualization and Containerization
+*   Vagrant
+*   Docker
+* Monitoring
+*   SenSu
+*   SumoLogic
+*   NewRelic
+*   AppDynamics
+*   DataDog
+* Orchestration
+*   Docker Swarm
+*   Kubernetes
+*   Zookeeper
+*   Terraform
 
 For a more full listing of DevOps tools, see the [Periodic Table of DevOps Tools](https://digital.ai/periodic-table-of-devops-tools)
 
 Check out:
-*    [What is DevOps?](https://theagileadmin.com/what-is-devops/)
-*    [Understanding Agile Methodology](https://digital.ai/resources/agile-101)
+* [What is DevOps?](https://theagileadmin.com/what-is-devops/)
+* [Understanding Agile Methodology](https://digital.ai/resources/agile-101)
 
 ---
 ## System Administration
 A system administrator is the person in the IT department in charge of purchasing, maintaining, upgrading and testing the (multi-user) computer systems of a company. They are tasked with ensuring that all systems are up to date (both in terms of software and hardware), secure, and operational. The sysadmin is the usually the person with root privileges who assigns user and group permissions to all other users. This role often involves being on-call in the case of server malfunction or meltdown. Sysadmins do not necessarily need a strong background in programming, but are typically very comfortable with the Linux OS, as most servers run on Linux, and Bash, as it is the primary mode of interacting with and automating server-side tasks. Today’s system administrators are also typically familiar more modern automation tools such as Puppet, Chef, and Ansible, which make configuring servers much more scalable.
 
 Check out:
-*    [What is the Role of a System Administrator?(https://www.cyberciti.biz/faq/what-is-the-role-of-the-system-administrator/)
-*    [System Administration](https://en.wikiversity.org/wiki/System_administration)
+* [What is the Role of a System Administrator?(https://www.cyberciti.biz/faq/what-is-the-role-of-the-system-administrator/)
+* [System Administration](https://en.wikiversity.org/wiki/System_administration)
 
 ---
 ## Site Reliability Engineering
 Site reliability engineering is the application of DevOps principles to a specific role within an IT company. There is a growing market for SREs as they help ensure that the process of iterating code is continuous, scalable, and reliable. They bridge the gap between development and operations as not only must they excel at the tasks previously relegated to system engineers/administrators, but they must also have a solid background in programming. The role will look different in different companies, depending on their size and infrastructure, but an SRE will typically spend part of their time maintaining systems, and the rest of their time building features or internal tools, scaling, and automating.
 
 Checkout:
-*    [What is ‘Site Reliability Engineering’?](https://landing.google.com/sre/interview/ben-treynor-sloss/)
-*    [Love DevOps? Wait Until you meet SRE](https://www.atlassian.com/incident-management/devops/sre)
-*    [Site Reliability Engineering](https://en.wikipedia.org/wiki/Site_Reliability_Engineering)
+* [What is ‘Site Reliability Engineering’?](https://landing.google.com/sre/interview/ben-treynor-sloss/)
+* [Love DevOps? Wait Until you meet SRE](https://www.atlassian.com/incident-management/devops/sre)
+* [Site Reliability Engineering](https://en.wikipedia.org/wiki/Site_Reliability_Engineering)
 
 ---
 ## Background Context
 
 In this project, some of the tasks will be graded on 2 aspects:
-*    Is your web-01 server configured according to requirements
-*    Does your answer file contain a Bash script that automatically performs commands to configure an Ubuntu machine to fit requirements (meaning without any human intervention)
+* Is your web-01 server configured according to requirements
+* Does your answer file contain a Bash script that automatically performs commands to configure an Ubuntu machine to fit requirements (meaning without any human intervention)
 
 For example, if I need to create a file /tmp/test containing the string hello world and modify the configuration of Nginx to listen on port 8080 instead of 80, I can use emacs on my server to create the file and to modify the Nginx configuration file /etc/nginx/sites-enabled/default.
 
@@ -339,9 +335,9 @@ As you can tell, I am not using emacs to perform the task in my answer file. Thi
 A good Software Engineer is a lazy Software Engineer.
 
 Tips: to test your answer Bash script, feel free to reproduce the checker environment:
-*    start an ubuntu:16.04 Docker container
-*    run your script on it
-*    see how it behaves
+* start an ubuntu:16.04 Docker container
+* run your script on it
+* see how it behaves
 
 Check out the Docker concept page for more info about how to manipulate containers.
 
@@ -359,12 +355,12 @@ Read or watch:
 * [Logs files on Linux](https://intranet.hbtn.io/rltoken/bkqQ72HZVAV65G8nB503Pw)
 
 ### For reference:
-*    [RFC 7231 (HTTP/1.1)](https://tools.ietf.org/html/rfc7231)
-*    [RFC 7540 (HTTP/2)](https://tools.ietf.org/html/rfc7540)
+* [RFC 7231 (HTTP/1.1)](https://tools.ietf.org/html/rfc7231)
+* [RFC 7540 (HTTP/2)](https://tools.ietf.org/html/rfc7540)
 
 ### man or help:
-*    scp
-*    curl
+* scp
+* curl
 
 ---
 ## Learning Objectives:bulb:
@@ -381,14 +377,14 @@ What you should learn from this project:
 * Write a Bash script that transfers a file from our client to a server:
 
 Requirements:
-*    Accepts 4 parameters
-*        The path to the file to be transferred
-*        The IP of the server we want to transfer the file to
-*        The username scp connects with
-*        The path to the SSH private key that scp uses
-*    Display Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY if less than 3 parameters passed
-*    scp must transfer the file to the user home directory ~/
-*    Strict host key checking must be disabled when using scp
+* Accepts 4 parameters
+*   The path to the file to be transferred
+*   The IP of the server we want to transfer the file to
+*   The username scp connects with
+*   The path to the SSH private key that scp uses
+*Display Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY if less than 3 parameters passed
+* scp must transfer the file to the user home directory ~/
+* Strict host key checking must be disabled when using scp
 
 Example:
 ```
@@ -406,24 +402,24 @@ some_page.html
 sylvain@ubuntu$
 ```
 In this example, I:
-*    remotely execute the ls ~/ command via ssh to see what ~/ contains
-*    create a file named some_page.html
-*    execute my 0-transfer_file script
-*    remotely execute the ls ~/ command via ssh to see that the file some_page.html has been successfully transferred
+* remotely execute the ls ~/ command via ssh to see what ~/ contains
+* create a file named some_page.html
+* execute my 0-transfer_file script
+* remotely execute the ls ~/ command via ssh to see that the file some_page.html has been successfully transferred
 
 That is one way of publishing your website pages to your server.
 
 ### [1. Install nginx web server](./1-install_nginx_web_server)
 Readme:
-*    [-y on apt-get command](https://askubuntu.com/questions/672892/what-does-y-mean-in-apt-get-y-install-command)
+* [-y on apt-get command](https://askubuntu.com/questions/672892/what-does-y-mean-in-apt-get-y-install-command)
 
 Web servers are the piece of software generating and serving HTML pages, let’s install one!
 
 Requirements:
-*    Install nginx on your web-01 server
-*    Nginx should be listening on port 80
-*    When querying Nginx at its root / with a GET request (requesting a page) using curl, it must return a page that contains the string Holberton School
-*    As an answer file, write a Bash script that configures a new Ubuntu machine to respect above requirements
+* Install nginx on your web-01 server
+* Nginx should be listening on port 80
+* When querying Nginx at its root / with a GET request (requesting a page) using curl, it must return a page that contains the string Holberton School
+* As an answer file, write a Bash script that configures a new Ubuntu machine to respect above requirements
 
 Example:
 ```
@@ -455,9 +451,9 @@ If things are not going as expected, make sure to check out Nginx logs, they can
 Provide the domain name in your answer file.
 
 Requirement:
-*    provide the domain name only (example: foobar.tech), no subdomain (example: www.foobar.tech)
-*    configure your DNS records with an A entry so that your root domain points to your web-01 IP address Warning: the propagation of your records can take time (~1-2 hours)
-*    go to your profile and enter your domain in the Project website url field
+* provide the domain name only (example: foobar.tech), no subdomain (example: www.foobar.tech)
+* configure your DNS records with an A entry so that your root domain points to your web-01 IP address Warning: the propagation of your records can take time (~1-2 hours)
+* go to your profile and enter your domain in the Project website url field
 
 Example:
 ```
@@ -491,14 +487,14 @@ When your domain name is setup, please verify the Registrar here: https://whois.
 
 ### [3. Redirection](./3-redirection)
 Readme:
-*    [Replace a line with multiple lines with sed](https://stackoverflow.com/questions/26041088/sed-replace-line-with-multiline-variable)
+* [Replace a line with multiple lines with sed](https://stackoverflow.com/questions/26041088/sed-replace-line-with-multiline-variable)
 
 Configure your Nginx server so that /redirect_me is redirecting to another page.
 
 Requirements:
-*    The redirection must be a “301 Moved Permanently”
-*    You answer file should be a Bash script containing commands to automatically configure a Ubuntu machine to respect above requirements
-*    Using what you did with 1-install_nginx_web_server, write 3-redirection so that it configures a brand new Ubuntu machine to the requirements asked in this task
+* The redirection must be a “301 Moved Permanently”
+* You answer file should be a Bash script containing commands to automatically configure a Ubuntu machine to respect above requirements
+* Using what you did with 1-install_nginx_web_server, write 3-redirection so that it configures a brand new Ubuntu machine to the requirements asked in this task
 
 Example:
 ```
@@ -518,9 +514,9 @@ sylvain@ubuntu$
 * Configure your Nginx server to have a custom 404 page that contains the string Ceci n'est pas une page.
 
 Requirements:
-*    The page must return an HTTP 404 error code
-*    The page must contain the string Ceci n'est pas une page
-*    Using what you did with 3-redirection, write 4-not_found_page_404 so that it configures a brand new Ubuntu machine to the requirements asked in this task
+* The page must return an HTTP 404 error code
+* The page must contain the string Ceci n'est pas une page
+* Using what you did with 3-redirection, write 4-not_found_page_404 so that it configures a brand new Ubuntu machine to the requirements asked in this task
 
 Example:
 ```
@@ -541,11 +537,11 @@ sylvain@ubuntu$
 
 ### [5. Design a beautiful 404 page](./5-design_a_beautiful_404_page)
 Some of my favorites:
-*    [Digital Ocean](https://www.digitalocean.com/community/tutorials/holbertonschool)
-*    [Github](https://github.com/holbertonschool/pagenotfound)
-*    [Lego](https://www.lego.com/en-us/404)
-*    [Blizzard](https://www.blizzard.com/en-us/404)
-*    [StickerMule](https://www.stickermule.com/404)
+* [Digital Ocean](https://www.digitalocean.com/community/tutorials/holbertonschool)
+* [Github](https://github.com/holbertonschool/pagenotfound)
+* [Lego](https://www.lego.com/en-us/404)
+* [Blizzard](https://www.blizzard.com/en-us/404)
+* [StickerMule](https://www.stickermule.com/404)
 
 Get creative and impress us!
 
@@ -561,10 +557,10 @@ It is your responsibility to request a review for this task from a peer before t
 * Time to practice configuring your server with Puppet! Just as you did before, we’d like you to install and configure an Nginx server using Puppet instead of Bash. To save time and effort, you should also include resources in your manifest to perform a 301 redirect when querying /redirect_me.
 
 Requirements:
-*    Nginx should be listening on port 80
-*    When querying Nginx at its root / with a GET request (requesting a page) using curl, it must return a page that contains the string Holberton School
-*    The redirection must be a “301 Moved Permanently”
-*    Your answer file should be a Puppet manifest containing commands to automatically configure an Ubuntu machine to respect above requirements
+* Nginx should be listening on port 80
+* When querying Nginx at its root / with a GET request (requesting a page) using curl, it must return a page that contains the string Holberton School
+* The redirection must be a “301 Moved Permanently”
+* Your answer file should be a Puppet manifest containing commands to automatically configure an Ubuntu machine to respect above requirements
 
 ---
 
