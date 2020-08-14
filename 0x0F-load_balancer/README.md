@@ -49,10 +49,19 @@ Requirements:
 
 Example:
 ```
-sylvain@ubuntu$ curl -sI 34.198.248.145 | grep X-Served-By
-X-Served-By: 03-web-01
-sylvain@ubuntu$ curl -sI 54.89.38.100 | grep X-Served-By
-X-Served-By: 03-web-02
+sylvain@ubuntu$ ./transfer 0-custom_http_response-header 34.75.91.155 ubuntu ~/.ssh/holberton
+0-custom_http_response-header                                100% 1399     1.4KB/s   00:00 
+sylvain@ubuntu$ ssh ubuntu@34.75.91.155 -i ~/.ssh/holberton
+ubuntu@localhost$ sudo hostnamectl set-hostname 1574-web-01
+ubuntu@localhost$ ./0-custom_http_response-header
+ubuntu@localhost$ logoout
+...
+sylvain@ubuntu$ curl -sI 34.75.91.155 | grep X-Served-By
+X-Served-By: 1574-web-01
+sylvain@ubuntu$ curl -sI 35.196.131.244 | grep X-Served-By
+X-Served-By: 1574-web-02
+sylvain@ubuntu$ curl -sI 35.185.65.161 | grep X-Served-By
+X-Served-By: 1574-lb-01
 sylvain@ubuntu$
 ```
 If your server’s hostnames are not properly configured ([STUDENT_ID]-web-01 and [STUDENT_ID]-web-02.), follow this [tutorial](https://aws.amazon.com/premiumsupport/knowledge-center/linux-static-hostname/).
