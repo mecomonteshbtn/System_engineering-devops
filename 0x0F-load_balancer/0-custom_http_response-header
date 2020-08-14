@@ -6,27 +6,12 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install nginx
 
-# Update index.html and 404.html files 
-echo 'Holberton School' | sudo tee /var/www/html/index.html
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-
 # Set the hostname into config file
 sudo service nginx start
 new_string="\\\tadd_header X-Served-By 1574-web-01;"
-sudo sed -i "19i $new_string" /etc/nginx/nginx.conf
-
-# Configure redirect_me to another page
-sudo service nginx start
-new_string="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
-sudo sed -i "19i $new_string" /etc/nginx/sites-available/default
-
-# Configure rediction to 404 error page
-new_string="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}"
-sudo sed -i "20i $new_string" /etc/nginx/sites-available/default
+sudo sed -i "15i $new_string" /etc/nginx/nginx.conf
 
 # Start nginx after reloading config
 sudo service nginx start
-# Or restart nginx if it was already running
-sudo service nginx restart
 # Finally, reload nginx to be sure that everithing works!
 sudo service nginx reload
