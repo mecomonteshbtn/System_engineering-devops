@@ -28,14 +28,14 @@ Read or watch:
 ---
 ## Your servers
 ---
-Name |	Username |	IP |	State |	
----
-1574-web-01 |	ubuntu |	34.75.91.155 |	running |	Soft reboot |	Hard reboot |	Ask a new server |
----
-1574-web-02 |	ubuntu |	35.196.131.244 | running |	Soft reboot |	Hard reboot |	Ask a new server |
----
-1574-lb-01 |	ubuntu |	35.185.65.161 |	running |	Soft reboot |	Hard reboot |	Ask a new server |
----
+| Name |	Username |	IP |	State |        |          |         |
+|------|-----------------|---------|----------|--------|----------|---------|
+| 1574-web-01 |	ubuntu |	34.75.91.155 |	running |	Soft reboot |	Hard reboot |	Ask a new server |
+|------|-----------------|---------|----------|--------|----------|---------|
+| 1574-web-02 |	ubuntu |	35.196.131.244 | running |	Soft reboot |	Hard reboot |	Ask a new server |
+|------|-----------------|---------|----------|--------|----------|---------|
+| 1574-lb-01 |	ubuntu |	35.185.65.161 |	running |	Soft reboot |	Hard reboot |	Ask a new server |
+|------|-----------------|---------|----------|--------|----------|---------|
 
 ### [0. Double the number of webservers](./0-custom_http_response-header)
 * In this first task you need to configure web-02 to be identical to web-01. Fortunately, you built a Bash script during your [web server project](https://github.com/mecomonteshbtn/holberton-system_engineering-devops/tree/master/0x0C-web_server), and they’ll now come in handy to easily configure web-02. Remember, always try to automate your work!
