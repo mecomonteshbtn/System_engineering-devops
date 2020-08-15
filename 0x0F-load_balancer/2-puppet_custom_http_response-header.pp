@@ -2,30 +2,19 @@
 
 exec { 'apt-get update':
   command => 'apt-get update',
-  path    => '/usr/bin:/usr/sbin:/bin:/sbin',
 }
 
 package { 'nginx':
   ensure  => 'installed',
-  require => Exec['apt update'],
+  name => 'nginx',
 }
 
-exec { 'custom_header':
-  command => 'sed -i \\\tadd_header X-Served-By 1574-web-01; /etc/nginx/nginx.conf',
-  path    => '/usr/bin:/usr/sbin:/sbin:/bin',
+file_line { 'append a line in nginx config file':
+  path  => '/etc/nginx/nginx.conf',
+  line  => "\tadd_header X-Served-By ${hostname};",
+  after => 'http {',
 }
 
-service { 'nginx':
-  ensure  => 'running',
-  enable  => true,
-  require => Package['nginx'],
-}
-
-file { '/etc/nginx/nginx.conf':
-  notify  => Service['nginx'],
-  mode    => '0600',
-  owner   => 'nginx',
-  group   => 'nginx',
-  require => Package['nginx'],
-  content => template('nginx/nginx.conf.erb'),
+exec { 'sudo service nginx restart':
+  command => '/usr/sbin/service nginx restart',
 }
