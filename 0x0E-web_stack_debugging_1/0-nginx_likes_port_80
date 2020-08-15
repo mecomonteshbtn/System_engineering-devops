@@ -1,1 +1,4 @@
 #!/usr/bin/env bash
+# Fixing issues in a container
+sed 's/8080/80/' /etc/nginx/sites-enabled/default
+service nginx restart
