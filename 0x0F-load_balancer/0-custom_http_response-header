@@ -3,15 +3,11 @@
 
 # Install and setup nginx into the server
 sudo apt-get -y update
-sudo apt-get -y upgrade
 sudo apt-get -y install nginx
 
 # Set the hostname into config file
-sudo service nginx start
 new_string="\\\tadd_header X-Served-By 1574-web-01;"
 sudo sed -i "15i $new_string" /etc/nginx/nginx.conf
 
 # Start nginx after reloading config
 sudo service nginx start
-# Finally, reload nginx to be sure that everithing works!
-sudo service nginx reload

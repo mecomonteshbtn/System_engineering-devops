@@ -1,1 +1,36 @@
 #!/usr/bin/env bash
+# Configure HAProxy load balancer server
+
+CONFIG_FILE=/etc/haproxy/haproxy.cfg
+INPUT_LINE="
+frontend haproxynode
+        bind *:80
+        mode http
+        default_backend backendnodes
+
+backend backendnodes
+        balance roundrobin
+        option forwardfor # ensure forwarded request includes cleint ip
+        server 496-web-01 35.243.204.105
+        server 496-web-02 35.190.182.239
+"
+
+# check if HAProxy was previously configured
+if [ "$(grep -o "$INPUT_LINE" $CONFIG_FILE | wc -l)" != 0 ]; then
+    echo 'HAProxy already configured to script specs :)...'
+    # restart HAProxy
+    service haproxy restart
+else
+    # install HAProxy Version 1.8
+    apt-get -y install software-properties-common
+    add-apt-repository -y ppa:vbernat/haproxy-1.8
+    apt-get -y update
+    apt-get -y install haproxy=1.8.\*
+
+    # configure HAProxyd
+
+    printf "%s" "$INPUT_LINE" >> $CONFIG_FILE
+
+    # start HAProxy
+    service haproxy start
+fi
