@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 # Automatizing the nginx configuration
-
-# Install and setup nginx into the server
 sudo apt-get -y update
 sudo apt-get -y install nginx
-
-# Set the hostname into config file
-new_string="\\\tadd_header X-Served-By 1574-web-01;"
-sudo sed -i "15i $new_string" /etc/nginx/nginx.conf
-
-# Start nginx after reloading config
-sudo service nginx start
+sudo sed -i "15i \\\tadd_header X-Served-By 1574-web-01;" /etc/nginx/nginx.conf
+sudo service nginx restart
