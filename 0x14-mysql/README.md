@@ -44,6 +44,7 @@ mysql --version
 ```
 Example:
 ```
+vagrant@meco:~$ ssh -i ~/.ssh/holberton ubuntu@35.227.35.75
 ubuntu@229-web-01:~$ mysql --version
 mysql  Ver 14.14 Distrib 5.7.25, for Linux (x86_64) using  EditLine wrapper
 ubuntu@229-web-01:~$
@@ -59,6 +60,8 @@ In order for us to verify that your servers are properly configured, we need you
 
 Example:
 ```
+ubuntu@229-web-01:~$ cat setup_user.sql | mysql -u holberton -u root -p
+Enter password:
 ubuntu@229-web-01:~$ mysql -uholberton_user -p -e "SHOW GRANTS FOR 'holberton_user'@'localhost'"
 Enter password:
 +-----------------------------------------------------------------+
