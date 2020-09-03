@@ -25,6 +25,23 @@ First things first, let’s get MySQL installed on both your web-01 and web-02 s
 * Make sure that task #3 of your SSH project is completed for web-01 and web-02. The checker will connect to your servers to check MySQL status
 * Please make sure you have your README.md pushed to Github.
 
+Install MySQL into a server:
+```
+Step 1. Installing MySQL:
+
+sudo apt-get update
+sudo apt-get install mysql-server
+
+Step 2. Configuring MySQL:
+
+mysql_secure_installation
+
+Step 3. Testing MySQL
+
+systemctl status mysql.service
+mysqladmin -p -u root version
+mysql --version
+```
 Example:
 ```
 ubuntu@229-web-01:~$ mysql --version
