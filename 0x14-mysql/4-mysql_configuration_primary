@@ -102,4 +102,3 @@ binlog_do_db	    = tyrell_corp
 # ssl-ca=/etc/mysql/cacert.pem
 # ssl-cert=/etc/mysql/server-cert.pem
 # ssl-key=/etc/mysql/server-key.pem
-ubuntu@1574-web-01:/etc/mysql/mysql.co
