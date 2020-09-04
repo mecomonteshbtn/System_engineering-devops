@@ -140,6 +140,14 @@ Requirements:
 Example:
 [web-01](./4-mysql_configuration_primary)
 ```
+REMEMBER THIS!:
+
+sudo ufw allow 3306
+sudo ufw disable
+sudo ufw reload
+sudo ufw enable
+
+
 ubuntu@web-01:~$ mysql -uholberton_user -p
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
