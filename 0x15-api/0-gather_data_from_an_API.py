@@ -5,13 +5,12 @@ Created on Mon Sep 14 16:22:14 2020
 
 @author: Robinson Montes
 """
-from json import loads
 from requests import get
 from sys import argv
 
 
 if __name__ == '__main__':
-    user_id  = argv[1]
+    user_id = argv[1]
     url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
     response = get(url)
     name = response.json().get('name')
