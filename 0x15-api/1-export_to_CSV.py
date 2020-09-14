@@ -18,10 +18,8 @@ if __name__ == '__main__':
     url = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(user_id)
     response = get(url)
     tasks = response.json()
-    done = 0
-    done_tasks = []
     with open('{}.csv'.format(user_id), 'w') as file:
         for task in tasks:
-            file.write('"{}", "{}", "{}", "{}"\n'
+            file.write('"{}","{}","{}","{}"\n'
                        .format(user_id, username, task.get('completed'),
                                task.get('title')))
