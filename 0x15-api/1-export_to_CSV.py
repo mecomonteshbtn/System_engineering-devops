@@ -20,6 +20,6 @@ if __name__ == '__main__':
     tasks = response.json()
     with open('{}.csv'.format(user_id), 'w') as file:
         for task in tasks:
-            file.write('{},{},{},{}\n'
+            file.write('"{}","{}","{}","{}"\n'
                        .format(user_id, username, task.get('completed'),
                                task.get('title')))
