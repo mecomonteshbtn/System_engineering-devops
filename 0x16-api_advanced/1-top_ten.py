@@ -1,3 +1,4 @@
+
 #!/usr/bin/python3
 """
 Created on Thu Sep 17 11:47:53 2020
@@ -12,7 +13,7 @@ def top_ten(subreddit):
     """queries the Reddit API and prints the titles of the first 10 hot posts
     listed for a given subreddit.
     """
-    url = 'https://www.reddit.com/r/{}/top.json'.format(subreddit)
+    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     headers = {
         'User-Agent':
         'Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2.3) \

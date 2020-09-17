@@ -25,8 +25,6 @@ def number_of_subscribers(subreddit):
 
     try:
         subscribers = reddits.get('data').get('subscribers')
+        return int(subscribers)
     except:
         return 0
-    if subscribers is None:
-        return 0
-    return int(subscribers)

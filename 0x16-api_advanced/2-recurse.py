@@ -25,10 +25,9 @@ def recurse(subreddit, hot_list=[]):
 
     try:
         children = reddits.get('data').get('children')
+        for title in children:
+            hot_list.append(title.get('data').get('title'))
+        return hot_list
     except:
-        return 0
-    if children is None:
         print(None)
-    for title in children:
-        hot_list.append(title.get('data').get('title'))
-    return hot_list
+        return 0
