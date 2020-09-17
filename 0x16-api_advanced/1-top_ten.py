@@ -23,8 +23,7 @@ def top_ten(subreddit):
 
     try:
         children = reddits.get('data').get('children')
+        for i in range(10):
+            print(children[i].get('data').get('title'))
     except:
         print(None)
-        return
-    for i in range(10):
-        print(children[i].get('data').get('title'))
