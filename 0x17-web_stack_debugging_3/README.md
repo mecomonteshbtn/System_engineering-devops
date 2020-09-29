@@ -34,6 +34,8 @@ $ gem install puppet-lint -v 2.1.1
 ### [0. Strace is your friend](./0-strace_is_your_friend.pp)
 *Using strace, find out why Apache is returning a 500 error. Once you find the issue, fix it and then automate it using Puppet (instead of using Bash as you were previously doing).
 
+* [Watch this video](https://www.youtube.com/watch?v=uHEzt1QuASo&feature=youtu.be)
+
 Hint:
 * strace can attach to a current running process
 * You can use [tmux](https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/) to run [strace](https://strace.io/) in one window and curl in another one
