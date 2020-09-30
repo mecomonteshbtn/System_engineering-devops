@@ -74,6 +74,9 @@ What you should learn from this project:
 * Your server web-01 should be visible in Datadog under the host name XX-web-01
 * You can validate it by using this [API](https://docs.datadoghq.com/api/v1/hosts/)
 * If needed, you will need to update the hostname of your server
+```
+curl -X GET "https://api.datadoghq.com/api/v1/hosts" -H "Content-Type: application/json" -H "DD-API-KEY: 2fc8f8c857e33d8f9a9e64302ed59662" -H "DD-APPLICATION-KEY: 7b4cc9864f052aab9dbc7efc8ad2b1d514114563"
+```
 
 ### 1. [Monitor some metrics](./)
 
